@@ -5,32 +5,103 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Pokedex</title>
   </head>
   <body>
 
+    <nav>
+
+        <ul>
+            <li><img src="http://www.pokemongobrasil.com/wp-content/uploads/2016/08/pokebola-go.png" alt="pokebola"></li>
+            <li><a href="/"><h1> Pokedex </h1></a></li>
+            <li> <a href="#cadastro"> Cadastro </a> </li>
+            <li> <a href="#cards"> Pokemons </a> </li>
+        </ul>
+
+    </nav>
+
     <header>
-        <h1>Pokedex</h1>
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3a650fd1-eca0-4a27-8204-ef3ea54b80d2/daf1mc0-549c018b-b7ba-46de-bcc3-bfe0b527a935.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNhNjUwZmQxLWVjYTAtNGEyNy04MjA0LWVmM2VhNTRiODBkMlwvZGFmMW1jMC01NDljMDE4Yi1iN2JhLTQ2ZGUtYmNjMy1iZmUwYjUyN2E5MzUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.B7RiXDw9rsVLwaDLOz0cCwJp2iuCJNK-YP7Z7rfVFSg" alt="">
     </header>
 
     <main>
+
+        <section id="cadastro">
+
+            <img src="/img/pokedex.png" alt="Pokedex">
+
+            <div>
+                <% if (pokemon == undefined){ %>
+            <h2>Cadastre um novo pokemon</h2>
+
+            <form action="/create" method="post">
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome">
+
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" name="descricao">
+
+               <label for="tipo">Tipo:</label>
+               <input type="text" id="tipo" name="tipo">
+
+               <label for="imagem">Link da imagem:</label>
+               <input type="text" id="imagem" name="imagem">
+
+               <button id="btncadastrar" type="submit">Cadastrar</button>
+
+            </form>
+            <% } else { %>
+
+                <h2>Atualize seu pokemon</h2>
+            
+            <form action="/update/<%= pokemon.id %>" method="POST">
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="<%= pokemon.nome %>">
+
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" name="descricao" value="<%= pokemon.descricao %>">
+
+               <label for="tipo">Tipo:</label>
+               <input type="text" id="tipo" name="tipo" value="<%= pokemon.tipo %>">
+
+               <label for="imagem">Link da imagem:</label>
+               <input type="text" id="imagem" name="imagem" value="<%= pokemon.imagem %>">
+
+               <button id="btnatualizar" type="submit">Atualizar</button>
+
+            </form>
+            <% } %>
+            </div>
+
+        </section>
+
         <section id="cards">
+
+            <h2>Lista de pokemons</h2>
 
             <% pokedex.forEach((pokemon) => { %>
                 <div class="card">
                 
                     <img src="<%= pokemon.imagem %>" alt="">
-                    <h2><%= pokemon.nome %></h2>
+                    <h3><%= pokemon.nome %></h3>
                     <p class="descricao"><%= pokemon.descricao %></p>
                     <p>Tipo: <%= pokemon.tipo %></p>
+                    <a id="editar" href="/detalhes/<%= pokemon.id %>">Editar</a>
+                    <a id="apagar" href="/delete/<%= pokemon.id %>">Apagar</a>
         
                 </div>
             <% }) %>
         
         </section>
+
     </main>
 
-    
+    <footer>
+        <p>Todos os direitos reservados para Alex&copy;</p>
+        <p>Dados retirados de: <a target="_blank" href="https://www.pokemon.com/br/pokedex"> Pokedex</a> </p>
+    </footer>
 
   </body>
 </html>

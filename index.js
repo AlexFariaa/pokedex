@@ -4,6 +4,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded());
 
 const pokedex = [
     {
@@ -31,13 +32,49 @@ const pokedex = [
 
 //rotas
 
+let pokemon = undefined
+
 app.get("/", (req, res) => {
-  res.render("index", {pokedex});
+  res.render("index", {pokedex, pokemon});
 });
 
 app.get("/home", (req, res) => {
   res.send("pagina inicial");
 });
+
+app.post("/create", (req, res)=>{
+    const pokemon = req.body;
+    pokemon.id = pokedex.length + 1;
+    pokedex.push(pokemon);
+    console.log(pokemon)
+    
+    res.redirect("/#cards");
+});
+
+app.get("/detalhes/:id", (req, res) => {
+    const id = +req.params.id
+    pokemon = pokedex.find(pokemon => pokemon.id == id);
+    res.redirect("/#cadastro");
+})
+
+app.post("/update/:id", (req, res)=>{
+    const id = +req.params.id - 1
+
+    const newpokemon = req.body
+    newpokemon.id = id + 1
+    pokedex[id] = newpokemon;
+
+    pokemon = undefined
+    res.redirect("/#cards");
+});
+
+app.get("/delete/:id", (req, res) =>{
+    const id = +req.params.id - 1
+
+    delete pokedex[id]
+
+    res.redirect("/#cards")
+})
 
 app.listen(3000, () =>
   console.log("Servidor rodando em https://localhost:3000")

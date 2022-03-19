@@ -4,44 +4,190 @@
     margin: 0;
     padding: 0;
     font-family: Roboto, Arial;
+    scroll-behavior: smooth;
 }
 
-
-header{
-    padding: 3rem;
-    background-color: red;
+nav img{
+    width: 3rem;
 }
 
-header h1{
+nav{
+    background-color: #dc0a2d;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+}
+
+nav ul li{
+    padding: 0.4rem;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+}
+
+nav h1{
     color: #ffff;
-    font-size: 3rem;
+    font-size: 1.5rem;
     text-align: center;
 }
 
+nav ul li a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 1.2rem;
+}
+
+header img{
+    width: 100%;
+}
+
 main {
-    margin: 0 10rem 0 10rem;
+    margin: 0 3rem 0 3rem;
 }
 
 section#cards{
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     margin-top: 5rem;
 }
 
 section#cards div.card{
-    width: 15rem;
+    width: 13rem;
     box-shadow: 5px 5px 5px 5px #00000015;
     padding: 1rem;
+    margin:3rem 0 5rem 0;
+}
+
+section#cards div.card a#editar{
+    padding: 0.6rem;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: aliceblue;
+    border: solid 1px rgb(4, 0, 255);
+    color: rgb(4, 0, 255);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    margin-top: 2rem;
+}
+
+section#cards div.card a#apagar{
+    padding: 0.6rem;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: aliceblue;
+    border: solid 1px rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    margin-top: 0rem;
+}
+
+section#cards div.card a#editar:hover{
+    background-color: rgb(4, 0, 255);
+    color: aliceblue;
+}
+
+section#cards div.card a#apagar:hover{
+    background-color: rgb(255, 0, 0);
+    color: aliceblue;
+}
+
+section#cards h2{
+    width: 100%;
+    text-align: center;
 }
 
 section#cards div.card img{
     width: 100%;
 }
 
-section#cards div.card h2{
+section#cards div.card h3{
     margin-bottom: 1rem;
 }
 
 section#cards div.card p.descricao{
     margin-bottom: 1rem;
+}
+
+section#cadastro{
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+}
+
+section#cadastro h2{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 2rem;
+    color: gainsboro
+}
+
+section#cadastro form{
+    width: 100%;
+}
+
+
+section#cadastro form input{
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+    border: solid 2px gainsboro;
+    margin: 0rem 1rem 1rem 0rem;
+}
+
+section#cadastro form label{
+    color: rgb(41, 41, 41);
+}
+
+section#cadastro form button{
+    padding: 0.6rem;
+    width: 20%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: aliceblue;
+    border: solid 1px red;
+    color: red;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+section#cadastro form button:hover{
+    background-color: red;
+    color: aliceblue;
+}
+
+footer {
+    background-color: #dc0a2d;
+    padding: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer p{
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+footer p a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
 }
