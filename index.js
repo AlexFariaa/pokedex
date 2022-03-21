@@ -15,21 +15,24 @@ const pokedex = [
         nome: "Bulbasaur",
         descricao: "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.",
         tipo: "grass",
-        imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
+        imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+        imagem1: "https://trecobox.com.br/wp-content/uploads/2019/02/pokemon-detetive-pikachu-novo-teaser.jpg"
     },
     {
         id: 2,
         nome: "Charmander",
         descricao: "It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail.",
         tipo: "fire",
-        imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"
+        imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",
+        imagem1: "https://i.pinimg.com/originals/b2/f2/d2/b2f2d2a9d9680e5bb02d605dec67b505.jpg"
     },
     {
         id: 3,
         nome: "Squirtle",
         descricao: "When it retracts its long neck into its shell, it squirts out water with vigorous force.",
         tipo: "water",
-        imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"
+        imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png",
+        imagem1: "https://i.pinimg.com/originals/26/03/fe/2603fe58239fa536f3842b8baa46fa28.png"
     }
 ]
 

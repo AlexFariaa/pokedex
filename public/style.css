@@ -50,10 +50,16 @@ main {
 }
 
 section#cards{
-    display: flex;
+    display:flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin-top: 5rem;
+}
+
+section#cards div.card:hover{
+    background-color: #dc0a2d15;
+    position: relative;
+    top:-2px;box-shadow:0 2px 2px #666;
 }
 
 section#cards div.card{

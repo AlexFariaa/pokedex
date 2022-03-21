@@ -28,7 +28,7 @@
 
         <section id="cadastro">
 
-            <img src="./img/pokedex.png" alt="Pokedex">
+            <img src="/img/pokedex.png" alt="Pokedex">
 
             <div>
                 <% if (pokemon == undefined){ %>
@@ -48,6 +48,9 @@
                <label for="imagem">Link da imagem:</label>
                <input type="text" id="imagem" name="imagem">
 
+               <label for="imagem">Link da imagem secundaria:</label>
+               <input type="text" id="imagem1" name="imagem1">
+
                <button id="btncadastrar" type="submit">Cadastrar</button>
 
             </form>
@@ -66,8 +69,11 @@
                <label for="tipo">Tipo:</label>
                <input type="text" id="tipo" name="tipo" value="<%= pokemon.tipo %>">
 
-               <label for="imagem">Link da imagem:</label>
+               <label for="imagem">Link da imagem principal:</label>
                <input type="text" id="imagem" name="imagem" value="<%= pokemon.imagem %>">
+
+               <label for="imagem">Link da imagem secundaria:</label>
+               <input type="text" id="imagem1" name="imagem1" value="<%= pokemon.imagem1 %>">
 
                <button id="btnatualizar" type="submit">Atualizar</button>
 
@@ -84,7 +90,7 @@
             <% pokedex.forEach((pokemon) => { %>
                 <div class="card">
                 
-                    <img src="<%= pokemon.imagem %>" alt="">
+                    <img src="<%= pokemon.imagem %>" alt="" onmouseover="this.src=`<%= pokemon.imagem1 %>`" onmouseout="this.src=`<%= pokemon.imagem%>`">
                     <h3><%= pokemon.nome %></h3>
                     <p class="descricao"><%= pokemon.descricao %></p>
                     <p>Tipo: <%= pokemon.tipo %></p>
